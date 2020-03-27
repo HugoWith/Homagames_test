@@ -51,6 +51,7 @@ export default {
   name: "Home",
   data() {
     return {
+      ContinentsFiltered: [],
       Continents: [],
       selectedContinent: "",
       selectedMetric: ""
@@ -73,7 +74,16 @@ export default {
         // console.log(this.Continents);
       });
   },
-  methods: {}
+  methods: {
+    filterContinents() {
+      let filterContinents = this.Continents;
+      let filteredContinent = filterContinents.filter(
+        (v, i, a) => a.indexOf(v) === i
+      );
+      this.ContinentsFiltered = filteredContinent;
+      console.log(this.ContinentsFiltered);
+    }
+  }
 };
 </script>
 
